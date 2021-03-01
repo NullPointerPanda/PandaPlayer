@@ -1,0 +1,28 @@
+.button
+ {
+    -fx-background-color: transparent;
+ }
+ #btnSideBar{
+ 	-fx-background-color: #2e2e2e;
+ }
+ #btnSideBar:hover{
+ 	-fx-background-color: #454545;
+ }
+ #btnBottomBar{
+ 	-fx-background-color: #1c1c1c;
+ }
+ #btnBottomBar:hover{
+ 	-fx-background-color: #454545;
+ }
+#sliderBottomBar{
+ 	-fx-background-color: #1c1c1c;
+ }
+ #darkPanel{
+ 	-fx-background-color: #1c1c1c;
+ }
+#bg{
+	-fx-background-color: #0f0f0f;
+}
+#pane{
+	-fx-background-color:  #2e2e2e;
+}

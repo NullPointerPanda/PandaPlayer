@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <children>
+      <BorderPane prefHeight="533.0" prefWidth="833.0">
+         <center>
+            <StackPane id="bg" fx:id="bgPane" prefHeight="150.0" prefWidth="200.0" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+               <children>
+                  <MediaView fx:id="mediaView" fitHeight="530.0" fitWidth="650.0" />
+                  <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="133.0" prefWidth="733.0" style="-fx-background-color: #1c1c1c;">
+                           <children>
+                              <Pane id="darkPanel" fx:id="bottomPane" prefHeight="133.0" prefWidth="670.0">
+                                 <children>
+                                    <Button id="btnBottomBar" fx:id="backBtn" layoutX="193.0" layoutY="60.0" mnemonicParsing="false" onAction="#lastSong" prefHeight="42.0" prefWidth="53.0" stylesheets="@stylesheet.css">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="STEP_BACKWARD" size="30" />
+                                       </graphic>
+                                    </Button>
+                                    <Button id="btnBottomBar" fx:id="playBtn" layoutX="262.0" layoutY="60.0" mnemonicParsing="false" onAction="#play" prefHeight="42.0" prefWidth="47.0" stylesheets="@stylesheet.css">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="PLAY" size="30" wrappingWidth="26.571428298950195" />
+                                       </graphic>
+                                    </Button>
+                                    <Button id="btnBottomBar" fx:id="pauseBtn" layoutX="262.0" layoutY="60.0" mnemonicParsing="false" onAction="#pause" prefHeight="42.0" prefWidth="46.0" stylesheets="@stylesheet.css" visible="false">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="PAUSE" size="30" />
+                                       </graphic>
+                                    </Button>
+                                    <Button id="btnBottomBar" fx:id="nextBtn" layoutX="316.0" layoutY="59.0" mnemonicParsing="false" onAction="#nextSong" prefHeight="42.0" prefWidth="53.0" stylesheets="@stylesheet.css">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="STEP_FORWARD" size="30" />
+                                       </graphic>
+                                    </Button>
+                                    <Button id="btnBottomBar" fx:id="stopBtn" layoutX="63.0" layoutY="60.0" mnemonicParsing="false" onAction="#stop" prefHeight="42.0" prefWidth="53.0" stylesheets="@stylesheet.css">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="STOP" size="30" />
+                                       </graphic>
+                                    </Button>
+                                    <Slider id="sliderBottomBar" fx:id="volumeSlider" layoutX="523.0" layoutY="74.0" prefHeight="14.0" prefWidth="113.0" stylesheets="@stylesheet.css" />
+                                    <Slider id="sliderBottomBar" fx:id="progressBar" layoutX="64.0" layoutY="32.0" prefHeight="14.0" prefWidth="380.0" stylesheets="@stylesheet.css" />
+                                    <FontAwesomeIconView glyphName="VOLUME_UP" layoutX="480.0" layoutY="91.0" size="30" />
+                                    <Label fx:id="durationTime" layoutX="20.0" layoutY="30.0" text="0:00" textFill="WHITE" />
+                                    <Label fx:id="maxTime" layoutX="458.0" layoutY="31.0" text="0:00" textFill="WHITE" />
+                                    <Label layoutX="64.0" layoutY="6.0" text="Currently Playing: " textFill="WHITE" />
+                                    <Label fx:id="currentSong" layoutX="172.0" layoutY="6.0" prefHeight="17.0" prefWidth="266.0" textFill="WHITE" />
+                                    <Button id="btnBottomBar" fx:id="repeatBtn" layoutX="523.0" layoutY="18.0" mnemonicParsing="false" onAction="#repeat" prefHeight="41.0" prefWidth="47.0" stylesheets="@stylesheet.css">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="REPEAT" size="30" />
+                                       </graphic>
+                                    </Button>
+                                    <Button id="btnBottomBar" fx:id="randomBtn" layoutX="580.0" layoutY="19.0" mnemonicParsing="false" onAction="#random" prefHeight="41.0" prefWidth="47.0" stylesheets="@stylesheet.css">
+                                       <graphic>
+                                          <FontAwesomeIconView glyphName="RANDOM" size="30" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+         </center>
+         <left>
+            <Pane id="darkPanel" fx:id="leftPane" prefHeight="533.0" prefWidth="183.0" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imgCover" fitHeight="186.0" fitWidth="183.0" layoutY="347.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../images/Panda%20Studios%20Germany%2002-01.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button id="btnSideBar" fx:id="uploadBtn" layoutX="-3.0" layoutY="297.0" mnemonicParsing="false" onAction="#chooseFile" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Upload" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="17.0" />
+                     </font></Button>
+                  <FontAwesomeIconView glyphName="PLUS" layoutX="14.0" layoutY="330.0" size="30" />
+                  <Button id="btnSideBar" fx:id="musicBtn" layoutX="-3.0" layoutY="246.0" mnemonicParsing="false" onAction="#toggleMusicPane" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Music" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button id="btnSideBar" fx:id="playlistBtn" layoutX="-3.0" layoutY="196.0" mnemonicParsing="false" onAction="#togglePlaylistPane" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Playlist" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="17.0" />
+                     </font>
+                  </Button>
+                  <FontAwesomeIconView glyphName="MUSIC" layoutX="13.0" layoutY="227.0" size="30" />
+                  <FontAwesomeIconView glyphName="HEADPHONES" layoutX="12.0" layoutY="277.0" size="30" />
+                  <Button id="btnSideBar" fx:id="optionsBtn" layoutX="11.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleOptionsPane" prefHeight="38.0" prefWidth="30.0" stylesheets="@stylesheet.css">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="ELLIPSIS_V" size="30" />
+                     </graphic>
+                  </Button>
+               </children></Pane>
+         </left>
+      </BorderPane>
+      <Pane fx:id="creationPane" layoutX="208.0" layoutY="27.0" opacity="0.8" prefHeight="340.0" prefWidth="595.0" style="-fx-background-color: #1c1c1c;" visible="false">
+         <children>
+            <Button id="btnSideBar" layoutX="71.0" layoutY="285.0" mnemonicParsing="false" onAction="#createBtn" opacity="0.8" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Create" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Button>
+            <Button id="btnSideBar" layoutX="339.0" layoutY="285.0" mnemonicParsing="false" onAction="#cancelBtn" opacity="0.8" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="71.0" layoutY="40.0" opacity="0.8" text="Titel" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTitle" layoutX="140.0" layoutY="42.0" opacity="0.8" prefHeight="25.0" prefWidth="384.0" />
+            <Label layoutX="365.0" layoutY="87.0" opacity="0.8" text="Hinzugefügt" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="137.0" layoutY="87.0" opacity="0.8" text="Liste" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <ListView fx:id="inputList" layoutX="71.0" layoutY="117.0" onMouseClicked="#selectPlMusic" opacity="0.8" prefHeight="142.0" prefWidth="186.0" />
+            <ListView fx:id="outputList" layoutX="339.0" layoutY="117.0" opacity="0.8" prefHeight="142.0" prefWidth="186.0" />
+         </children>
+      </Pane>
+      <Pane id="pane" fx:id="musicPane" layoutX="183.0" opacity="0.8" prefHeight="401.0" prefWidth="650.0" stylesheets="@stylesheet.css" visible="false">
+         <children>
+            <ListView fx:id="musicList" layoutX="21.0" layoutY="61.0" onMouseClicked="#setSongFromView" opacity="0.8" prefHeight="319.0" prefWidth="610.0" style="-fx-background-color: #1c1c1c;" />
+            <Label alignment="TOP_CENTER" layoutX="21.0" layoutY="14.0" opacity="0.8" prefHeight="17.0" prefWidth="595.0" text="MUSIC" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane id="pane" fx:id="playlistPane" layoutX="183.0" opacity="0.8" prefHeight="401.0" prefWidth="650.0" stylesheets="@stylesheet.css" visible="false">
+         <children>
+            <Label alignment="TOP_CENTER" layoutX="31.0" layoutY="12.0" opacity="0.8" prefHeight="17.0" prefWidth="595.0" text="PLAYLISTS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="28.0" />
+               </font>
+            </Label>
+            <Button id="btnSideBar" layoutX="125.0" layoutY="346.0" mnemonicParsing="false" onAction="#createPlaylist" opacity="0.8" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Create Playlist" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Button>
+            <Button id="btnSideBar" layoutX="346.0" layoutY="346.0" mnemonicParsing="false" onAction="#deletePlMusic" opacity="0.8" prefHeight="41.0" prefWidth="186.0" stylesheets="@stylesheet.css" text="Delete Playlist" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="17.0" />
+               </font>
+            </Button>
+            <ListView fx:id="playlistList" layoutX="125.0" layoutY="44.0" onMouseClicked="#playPlMusic" opacity="0.8" prefHeight="290.0" prefWidth="406.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="optionsPane" layoutX="218.0" layoutY="37.0" opacity="0.8" prefHeight="340.0" prefWidth="573.0" style="-fx-background-color: #1c1c1c;" visible="false">
+         <children>
+            <Label layoutX="34.0" layoutY="42.0" opacity="0.8" text="Dark Theme" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="100.0" opacity="0.8" text="Cover Benachrichtungen" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="cBDark" layoutX="525.0" layoutY="49.0" mnemonicParsing="false" opacity="0.8" selected="true" />
+            <CheckBox layoutX="525.0" layoutY="107.0" mnemonicParsing="false" opacity="0.8" selected="true" />
+            <Label layoutY="311.0" opacity="0.8" prefHeight="30.0" prefWidth="543.0" text="PandaPlayer©2021 Made by PandaStudiosGermany [Fabian Joßberger]" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
